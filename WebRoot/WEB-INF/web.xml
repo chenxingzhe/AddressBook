@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>UserActionServlet</servlet-name>
+    <servlet-class>servlet.UserActionServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>CheckCodeServlet</servlet-name>
+    <servlet-class>servlet.CheckCodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StudentActionServlet</servlet-name>
+    <servlet-class>servlet.StudentActionServlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>UserActionServlet</servlet-name>
+    <url-pattern>*.useraction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckCodeServlet</servlet-name>
+    <url-pattern>/checkcode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentActionServlet</servlet-name>
+    <url-pattern>*.studentaction</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
