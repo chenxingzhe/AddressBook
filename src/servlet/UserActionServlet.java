@@ -136,7 +136,7 @@ public class UserActionServlet extends HttpServlet {
 			 * 用户登出
 			 */
 			//退出系统的时候，清除当前会话保存的信息
-			request.getSession().removeAttribute("student");
+			request.getSession().removeAttribute("currentUser");
 			request.getSession().removeAttribute("currentClass");
 			//转到登陆界面
 			response.sendRedirect("index.jsp");

@@ -90,11 +90,6 @@ public class StudentActionServlet extends HttpServlet {
 			String keywords = request.getParameter("keywords");
 			String fuzzyquery = request.getParameter("fuzzyquery");
 			
-			//添加到请求中
-			request.setAttribute("classify", classify);
-			request.setAttribute("keywords", keywords);
-			request.setAttribute("fuzzyquery", fuzzyquery);
-			
 			//获得符合要求的所有本班的学生对象，添加到请求中
 			List<Student> studentList = StudentDAO.findByInput((String)request.getSession().getAttribute("currentClass"),classify, keywords, "fuzzyquery".equals(fuzzyquery));
 			request.setAttribute("studentList", studentList);

@@ -19,7 +19,7 @@ public class DBUtil {
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/addressbook?useUnicode=true&characterEncoding=utf8";
 		String username = "root";
-		String password = "";
+		String password = "123456";
 		
 		Connection conn = null;
 		

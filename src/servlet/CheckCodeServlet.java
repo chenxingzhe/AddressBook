@@ -31,7 +31,7 @@ public class CheckCodeServlet extends HttpServlet {
 		//step4，设置画布的背景颜色
 		g.fillRect(0, 0, 80, 30);
 		//step5，生成一个随机数
-		String number = getNumber(2);
+		String number = getNumber(4);
 		
 
 		HttpSession session = request.getSession();
