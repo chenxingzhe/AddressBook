@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page import="entity.Student,java.text.*" %>
+<%@ page import="entity.*,java.text.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="top_content">
 				<div id="header">
 					<div id="rightheader">
-						<p><s:date name="time" format="yyyy-MM-dd"/><br/></p>
+						<%String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); %>
+						<p><%=date %><br/></p>
 					</div>
 					<div id="topheader">
 						<h1 id="title">
@@ -67,8 +68,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td><%=new SimpleDateFormat("yyyy-MM-dd").format(student.getBirthday()) %></td>
 							<td><%=student.getTel() %></td>
 							<td>
+								<%
+									boolean isMe = ((User)request.getSession().getAttribute("currentUser")).getUsername().equals(student.getId());
+									if(isMe){ 
+								%>
 								<a href="student_modify.jsp?id=<%=student.getId()%>">更改</a>&nbsp;&nbsp;
 								<a href="delete.studentaction?id=<%=student.getId()%>">删除</a>
+								<%} %>
 							</td>
 						</tr>
 						<%}} %>

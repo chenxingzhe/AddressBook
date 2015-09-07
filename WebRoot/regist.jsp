@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.text.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="top_content">
 				<div id="header">
 					<div id="rightheader">
-						<p><s:date name="time" format="yyyy-MM-dd"/><br/></p>
+						<%String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); %>
+						<p><%=date %><br/></p>
 					</div>
 					<div id="topheader">
 						<h1 id="title">
@@ -85,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</table>
 						<p>
 							<input type="submit" class="button" value="确认注册" />
-							<input type="button" class="button" onclick="location='index.jsp'" value="去登陆" />
+							<input type="button" class="button" onclick="location='index.jsp'" value="已有账号，去登陆&raquo;" />
 							<span style="color:red;"></span>
 						</p>
 					</form>

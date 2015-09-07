@@ -1,9 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page import="entity.User,util.ClassDAO" %>
+<%@ page import="entity.User,util.*" %>
 <div id="navigation">
 	<div style="padding:5px;color:#F7FFF1;">
 		欢迎&nbsp;&nbsp;
-		<%=((User)request.getSession().getAttribute("currentUser")).getUsername() %>&nbsp;&nbsp;
+		<% User currentUser = (User)request.getSession().getAttribute("currentUser"); %>
+		<%=StudentDAO.findById(currentUser.getUsername()).getName() %>
+		(<%=currentUser.getUsername() %>)&nbsp;&nbsp;
 		登录，&nbsp;&nbsp;
 		班级：&nbsp;
 		<%String classid = (String)request.getSession().getAttribute("currentClass"); %>

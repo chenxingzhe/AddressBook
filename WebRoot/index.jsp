@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -16,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="top_content">
 				<div id="header">
 					<div id="rightheader">
-						<p><s:date name="time" format="yyyy-MM-dd"/><br/></p>
+						<%String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); %>
+						<p><%=date %><br/></p>
 					</div>
 					<div id="topheader">
 						<h1 id="title">
@@ -53,8 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</table>
 						<p>
 							<input type="submit" class="button" value="登录系统" />
-							<input type="button" class="button" onclick="location='regist.jsp'" value="注册信息" />
-							<span style="color:red;"></span>
+							<input type="button" class="button" onclick="location='regist.jsp'" value="没有账号，去注册&raquo;" />
+							
 						</p>
 					</form>
 				</div>

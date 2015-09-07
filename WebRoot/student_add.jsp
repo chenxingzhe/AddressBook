@@ -18,7 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="top_content">
 				<div id="header">
 					<div id="rightheader">
-						<p><s:date name="time" format="yyyy-MM-dd"/><br/></p>
+						<%String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); %>
+						<p><%=date %><br/></p>
 					</div>
 					<div id="topheader">
 						<h1 id="title">
