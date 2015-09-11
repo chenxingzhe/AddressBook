@@ -15,6 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 验证码生成servlet类
+ * 
+ * @author Jasper
+ *
+ */
 public class CheckCodeServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +37,7 @@ public class CheckCodeServlet extends HttpServlet {
 		//step4，设置画布的背景颜色
 		g.fillRect(0, 0, 80, 30);
 		//step5，生成一个随机数
-		String number = getNumber(4);
+		String number = getNumber(2);
 		
 
 		HttpSession session = request.getSession();
@@ -60,6 +66,12 @@ public class CheckCodeServlet extends HttpServlet {
 		os.close();
 		
 	}
+	
+	/**
+	 * 获得一个指定字符集指定长度的随机字符串
+	 * @param size 长度参数
+	 * @return 字符串
+	 */
 	private String getNumber(int size){
 		String number="";
 		String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

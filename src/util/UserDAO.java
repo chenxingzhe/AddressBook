@@ -23,10 +23,14 @@ public class UserDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			String sql = "insert into user(username,password) values(?,?)";
+			String sql = "insert into user(username,password,id,classid,name,role) values(?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
+			ps.setString(3, user.getId());
+			ps.setString(4, user.getClassid());
+			ps.setString(5, user.getName());
+			ps.setString(6, user.getRole());
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {
@@ -60,6 +64,7 @@ public class UserDAO {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}finally{
 			try {
 				ps.close();
@@ -69,7 +74,6 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return false;
 	}
 	/**
 	 * 修改一条用户信息的密码
@@ -91,6 +95,7 @@ public class UserDAO {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}finally{
 			try {
 				ps.close();
@@ -100,7 +105,6 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return false;
 	}
 	/**
 	 * 通过用户名获得用户对象
@@ -114,7 +118,7 @@ public class UserDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			String sql = "select username,password from user where username=?";
+			String sql = "select username,password,id,classid,name,role from user where username=?";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			rs = ps.executeQuery();
@@ -122,10 +126,15 @@ public class UserDAO {
 				User user = new User();
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("password"));
+				user.setId(rs.getString("id"));
+				user.setClassid(rs.getString("classid"));
+				user.setName(rs.getString("name"));
+				user.setRole(rs.getString("role"));
 				return user;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}finally{
 			try {
 				ps.close();

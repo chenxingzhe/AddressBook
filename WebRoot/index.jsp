@@ -52,11 +52,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								 <span style="color:red"><%=(message==null?"":message) %></span>
 								 </td>
 							</tr>
+							<tr>
+								<td valign="middle" align="right">验证码:</td>
+								<td valign="middle" align="left">
+									<input type="text" class="inputgri" name="number_input"/>
+								</td>
+								<td>
+								<%
+								  String message_number = (String)request.getAttribute("number_error");
+								 %>
+								 <span style="color:red"><%=(message_number==null?"":message_number) %></span>
+								 </td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right"></td>
+								<td valign="middle" align="left">
+									<img src="checkcode" border="1" onclick="this.src='checkcode?'+Math.random();" style="cursor:pointer">
+								</td>
+							</tr>
 						</table>
 						<p>
 							<input type="submit" class="button" value="登录系统" />
 							<input type="button" class="button" onclick="location='regist.jsp'" value="没有账号，去注册&raquo;" />
-							
 						</p>
 					</form>
 				</div>

@@ -189,7 +189,7 @@
 	.table_header td {
 		border: 1px solid #CBD6DE;
 	}
-
+	
 	.row1 td, .row2 td, .row_hover td, .paging_row td {
 		padding: 5px 10px;
 		color: #666666;
@@ -199,8 +199,18 @@
 		background: #ffffff;
 	}
 	.row2 td {
-		background: #eeeeee;
+		background: #ddffdd;
 	}
+	.table a:hover{
+		font-weight:bold;
+		font-size:9px;
+	}
+	.row1:hover,.row2:hover{
+		background-color: #addaf5;
+	}
+	.row1:hover td,.row2:hover td {background:none;}
+	
+	
 	.row_hover td {
 		background: #FBFACE;
 		color: #000000;
@@ -226,7 +236,10 @@
 		width: 110px;
 		height:150px;
 	}
-
+	
+	#fuzzyquery{
+		vertical-align: middle;
+	}
 /* #content ul basic style for unordered lists
 ------------------------------------------------*/
 	#content ul {

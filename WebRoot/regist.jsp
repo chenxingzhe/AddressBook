@@ -37,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td valign="middle" align="right">用户名:</td>
 								<td valign="middle" align="left">
-									<input type="text" class="inputgri" name="username"/>
+									<%String username = request.getParameter("username"); %>
+									<input type="text" class="inputgri" name="username" value="<%=username==null?"":username%>"/>
 								</td>
 								<td>
 								<%
@@ -49,19 +50,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td valign="middle" align="right">密码:</td>
 								<td valign="middle" align="left">
-									<input type="password" class="inputgri" name="password"/>
+									<%String password = request.getParameter("password"); %>
+									<input type="password" class="inputgri" name="password" value="<%=password==null?"":password%>"/>
 								</td>
 							</tr>
 							<tr>
 								<td valign="middle" align="right">确认密码:</td>
 								<td valign="middle" align="left">
-									<input type="password" class="inputgri" name="repassword"/>
+									<%String repassword = request.getParameter("repassword"); %>
+									<input type="password" class="inputgri" name="repassword" value="<%=repassword==null?"":repassword%>"/>
 								</td>
 								<td>
 								<%
 								  String message_pwd = (String)request.getAttribute("password_wrong_error");
 								 %>
 								 <span style="color:red"><%=(message_pwd==null?"":message_pwd) %></span>
+								 </td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">学号:</td>
+								<td valign="middle" align="left">
+									<%String id = request.getParameter("id"); %>
+									<input type="text" class="inputgri" name="id" value="<%=id==null?"":id%>"/>
+								</td>
+								<td>
+								<%
+								  String message_id = (String)request.getAttribute("id_wrong_error");
+								 %>
+								 <span style="color:red"><%=(message_id==null?"":message_id) %></span>
+								 </td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">班级号:</td>
+								<td valign="middle" align="left">
+									<%String classid = request.getParameter("classid"); %>
+									<input type="text" class="inputgri" name="classid" value="<%=classid==null?"":classid%>"/>
+								</td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">姓名:</td>
+								<td valign="middle" align="left">
+									<%String name = request.getParameter("name"); %>
+									<input type="text" class="inputgri" name="name" value="<%=name==null?"":name%>"/>
+								</td>
+								<td>
+								<%
+								  String message_classid_and_name = (String)request.getAttribute("classid_or_name_wrong_error");
+								 %>
+								 <span style="color:red"><%=(message_classid_and_name==null?"":message_classid_and_name) %></span>
 								 </td>
 							</tr>
 							<tr>
@@ -77,9 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								 </td>
 							</tr>
 							<tr>
-								<td valign="middle" align="right">
-									<a href="javascript:;" onclick="">换一张</a>
-								</td>
+								<td valign="middle" align="right"></td>
 								<td valign="middle" align="left">
 									<img src="checkcode" border="1" onclick="this.src='checkcode?'+Math.random();" style="cursor:pointer">
 								</td>
@@ -88,7 +122,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<p>
 							<input type="submit" class="button" value="确认注册" />
 							<input type="button" class="button" onclick="location='index.jsp'" value="已有账号，去登陆&raquo;" />
-							<span style="color:red;"></span>
 						</p>
 					</form>
 				</div>
